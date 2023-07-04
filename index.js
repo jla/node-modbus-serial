@@ -18,7 +18,6 @@
 /* Add bit operation functions to Buffer
  */
 require("./utils/buffer_bit")();
-const { SerialPort } = require("serialport");
 const crc16 = require("./utils/crc16");
 const modbusSerialDebug = require("debug")("modbus-serial");
 
@@ -1160,6 +1159,7 @@ require("./apis/worker")(ModbusRTU);
 module.exports = ModbusRTU;
 
 module.exports.getPorts = function getPorts() {
+    const { SerialPort } = require("serialport");
     return SerialPort.list();
 };
 

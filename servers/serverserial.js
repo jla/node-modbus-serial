@@ -17,7 +17,6 @@
 const events = require("events");
 const EventEmitter = events.EventEmitter || events;
 const modbusSerialDebug = require("debug")("modbus-serial");
-const { SerialPort } = require("serialport");
 const ServerSerialPipeHandler = require("./serverserial_pipe_handler");
 
 const PORT = "/dev/tty";
@@ -213,6 +212,7 @@ class ServerSerial extends EventEmitter {
      * @constructor
      */
     constructor(vector, options, serialportOptions) {
+        const { SerialPort } = require("serialport");
         super();
 
         const modbus = this;
