@@ -216,7 +216,7 @@ class ServerTCP extends EventEmitter {
         options = options || {};
 
         // create a tcp server
-        modbus._server = net.createServer();
+        modbus._server = options.server || net.createServer();
         modbus._server.listen({
             port: options.port || MODBUS_PORT,
             host: options.host || HOST
